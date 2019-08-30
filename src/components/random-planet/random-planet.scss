@@ -1,23 +1,23 @@
-.PlanetPic {
+.random-planet {
+    display: flex;
+    padding: 1rem;
+  }
+  
+  .random-planet .planet-image {
     width: 150px;
     height: 150px;
-    border-radius: 5%;
-}
-.RandomPlanet {
-    background-color: #303030;
-    border-radius: 11px;
-    height: 200px;
-    align-items: center;
-    padding-left: 2rem;
-}
-.InfoPlanet{
-    margin: auto auto auto 3%;
-
-}
-.InfoPlanet p {
-    font-size: 25px;
-}
-
-.InfoPlanet ul li {
-    padding: 0.3rem;
-}
+    border-radius: 10px;
+    margin-right: 1rem;
+  }
+  
+  .random-planet .list-group {
+    margin: 1rem 0 0 1rem;
+  }
+  
+  .random-planet .list-group-item {
+    padding: .25rem;
+  }
+  
+  .random-planet .list-group-item .term {
+    margin-right: .5rem;
+  }
