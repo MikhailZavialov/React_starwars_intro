@@ -42,8 +42,8 @@ export  default class SwapiService {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     _extractId(item) {
-        const idRegExp = /\/([0-9]*)\/$/;
-        return item.url.match(idRegExp)[1];
+        const idRegExp = /\/([0-9]*)\/$/;                                                   // regular expression
+        return item.url.match(idRegExp)[1] - 1;
     }
 
     _transformPlanet(planet){
@@ -69,13 +69,13 @@ export  default class SwapiService {
             cargoCapacity: starship.cargoCapacity
         }
     }
-    _transformPPerson(person){
+    _transformPerson(person){
         return {
             id: this._extractId(person),
             name: person.name,
             gender: person.gender,
-            birthYear: person.birthYear,
-            eyeColor: person.eyeColor
+            birthYear: person.birth_year,
+            eyeColor: person.eye_color
         }
     }
 }
@@ -85,24 +85,30 @@ export  default class SwapiService {
 
 
 
-// const getResource = async (url) => {
-//     const res = await fetch(url);
-//
-//     if (!res.ok){
-//         throw new Error (`Could not fetch ${url}` +
-//         `, received ${res.status}`)
-//     }
-//     return  await res.json();
-//
-// };
-// getResource('https://swapi.co/api/people/1/')
-//     .then((body) => {
-//         console.log(body);
-//     })
-//
-//     .catch((err) => {
-//         console.error('Could not fetch', err);
-//     });
+const getResource = async (url) => {
+    const res = await fetch(url);
+
+    if (!res.ok){
+        throw new Error (`Could not fetch ${url}` +
+        `, received ${res.status}`)
+    }
+    return  await res.json();
+
+};
+getResource('https://swapi.co/api/people/')
+    .then((body) => {
+        console.log(body);
+    })
+getResource('https://swapi.co/api/planets/')
+    .then((res) => {
+        res.results.forEach(el => {
+                console.log (el.name)
+        })
+    })
+
+    .catch((err) => {
+        console.error('Could not fetch', err);
+    });
 
 
 
