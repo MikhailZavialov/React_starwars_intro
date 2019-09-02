@@ -105,29 +105,3 @@ getResource('https://swapi.co/api/planets/')
     .catch((err) => {
         console.error('Could not fetch', err);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
