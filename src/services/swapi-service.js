@@ -81,10 +81,6 @@ export  default class SwapiService {
 }
 
 
-
-
-
-
 const getResource = async (url) => {
     const res = await fetch(url);
 
