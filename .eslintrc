@@ -23,9 +23,11 @@
     "import"
   ],
 
-  "parser": "babel-eslint", // основные правила ESLint поддерживают только последний финальный стандарт ECMAScript и не поддерживают 
-    //экспериментальный (например, новые функции) и нестандартный (например, типы Flow или TypeScript) синтаксис, предоставляемый Babel. 
-    //babel-eslint - это синтаксический анализатор, который позволяет ESLint работать с исходным кодом, преобразованным Babel. 
+  "parser": "babel-eslint", /* основные правила ESLint поддерживают только последний финальный стандарт ECMAScript и не поддерживают 
+                               экспериментальный (например, новые функции) и нестандартный (например, типы Flow или TypeScript) 
+                               синтаксис, предоставляемый Babel. 
+                               babel-eslint - это синтаксический анализатор, который позволяет ESLint работать с исходным кодом, 
+                               преобразованным Babel. */
 
   "parserOptions": {
     "ecmaVersion": 2018, 
@@ -82,17 +84,17 @@
       ".jsx"
     ],
     "react": {
-      "createClass": "createReactClass", // Regex for Component Factory to use,
-                                         // default to "createReactClass"
-      "pragma": "React",  // Pragma to use, default to "React"
-      "version": "detect", // React version. "detect" automatically picks the version you have installed.
-                           // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
-                           // default to latest and warns if missing
-                           // It will default to "detect" in the future
-      "flowVersion": "0.53" // Flow version
+      "createClass": "createReactClass",     // Regex for Component Factory to use,
+                                            // default to "createReactClass"
+      "pragma": "React",                  // Pragma to use, default to "React"
+      "version": "detect",              // React version. "detect" automatically picks the version you have installed.
+                                       // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+                                     // default to latest and warns if missing
+                                    // It will default to "detect" in the future
+      "flowVersion": "0.53"       // Flow version
     },
     "linkComponents": [
-      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+                              // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
       "Hyperlink",
       {"name": "Link", "linkAttribute": "to"}
     ]
