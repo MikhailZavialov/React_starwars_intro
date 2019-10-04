@@ -1,13 +1,14 @@
 {
-  "env": { 
+  "env": {            // среды, которые будут включены, задав для каждой из них значение true. Например, следующее включает браузер
     "browser": true,   
     "commonjs": true,
     "es6": true,
     "node": true
 },
   "extends": [
+    "eslint:all",             // включить все основные правила в текущей установленной версии ESLint
     "airbnb",
-    "eslint:recommended", 
+    "eslint:recommended",  // включает подмножество основных правил, сообщающих о распространенных проблемах
     "plugin:react/recommended"
 ],
 
@@ -15,7 +16,9 @@
     "react"
   ],
 
-  "parser": "babel-eslint",
+  "parser": "babel-eslint", // основные правила ESLint поддерживают только последний финальный стандарт ECMAScript и не поддерживают 
+    //экспериментальный (например, новые функции) и нестандартный (например, типы Flow или TypeScript) синтаксис, предоставляемый Babel. 
+    //babel-eslint - это синтаксический анализатор, который позволяет ESLint работать с исходным кодом, преобразованным Babel. 
 
   "parserOptions": {
     "ecmaVersion": 2018, 
@@ -28,31 +31,29 @@
   "rules": {
     // "react/state-in-constructor": "never", 
     "quotes": [2, "single", { "avoidEscape": true }],
-    "no-underscore-dangle":  "off",   // allow simphol " _ " ( name of varibles for ex) 
+    "no-underscore-dangle":  "off",             // allow simphol " _ " ( name of varibles for ex) 
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],  // allow "js / jsx" format of file with JSX 
     "linebreak-style": ["error",  "windows"], 
-    "no-console": "off", // allow use console.log 
+    "no-console": "off",                      // allow use console.log 
     "arrow-parens": ["error", "as-needed"],  // allow not use parents with 1  argument in a func 
 
-    "object-curly-newline": ["error", {
+    "object-curly-newline": ["error", {     // parametr for (последовательные разрывы строк внутри фигурных скобок)
       "ObjectExpression": "always",
       "ObjectPattern": { "multiline": true },
       "ImportDeclaration": "never",
       "ExportDeclaration": { "multiline": true, "minProperties": 3 }
   }], 
-    "indent": ["error", 2], 
+    "indent": ["error", 2],                 //  последовательный отступ ( по умолч 4 )
 
-    "react/prop-types": [1, {
-      "ignore": ["className", "children", "location", "params", "location*"]
+    "react/prop-types": [1, {             //  for enabling the rule. 0=off, 1=warn, 2=error. Defaults to 0. 
+      "ignore": ["className", "children", "location", "params", "location*"]  // предотвращение проверки недостающих елем в React
     }],
-    "no-param-reassign": [0, {
-      "props": false
-    }],
-    "prefer-rest-params": 1,
-    "arrow-body-style": 0,
-    "prefer-template": 0,
-    "react/prefer-stateless-function": 1,
-    "react/jsx-no-bind": [0, {
+    "no-param-reassign": "error",          // запретить переназначение параметров функции
+    "prefer-rest-params": 1,              //  предлагать использовать rest parametr
+    "arrow-body-style": 0,                // не требовать фигурные скобки в функции-стрелке
+    "prefer-template": 1,                 // предлагать использовать литералы вместо канкотонации строк
+    "react/prefer-stateless-function": [1, { "ignorePureComponents": true }], // предлагать использовать компонент-функцию, если в ней нет состояния
+    "react/jsx-no-bind": [0, {          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
       "ignoreRefs": false,
       "allowArrowFunctions": true,
       "allowBind": true
@@ -71,12 +72,6 @@
                            // It will default to "detect" in the future
       "flowVersion": "0.53" // Flow version
     },
-    "propWrapperFunctions": [
-        // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
-        "forbidExtraProps",
-        {"property": "freeze", "object": "Object"},
-        {"property": "myFavoriteWrapper"}
-    ],
     "linkComponents": [
       // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
       "Hyperlink",
