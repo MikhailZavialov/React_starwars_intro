@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import './item-list.scss';
 
-export default class ItemList extends Component {
 
+export default class ItemList extends Component {
   render() {
     return (
       <ul className="item-list list-group">

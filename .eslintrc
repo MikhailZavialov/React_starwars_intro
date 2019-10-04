@@ -1,0 +1,88 @@
+{
+  "env": { 
+    "browser": true,   
+    "commonjs": true,
+    "es6": true,
+    "node": true
+},
+  "extends": [
+    "airbnb",
+    "eslint:recommended", 
+    "plugin:react/recommended"
+],
+
+  "plugins": [
+    "react"
+  ],
+
+  "parser": "babel-eslint",
+
+  "parserOptions": {
+    "ecmaVersion": 2018, 
+    "sourceType": "module", 
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "rules": {
+    // "react/state-in-constructor": "never", 
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "no-underscore-dangle":  "off",   // allow simphol " _ " ( name of varibles for ex) 
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],  // allow "js / jsx" format of file with JSX 
+    "linebreak-style": ["error",  "windows"], 
+    "no-console": "off", // allow use console.log 
+    "arrow-parens": ["error", "as-needed"],  // allow not use parents with 1  argument in a func 
+
+    "object-curly-newline": ["error", {
+      "ObjectExpression": "always",
+      "ObjectPattern": { "multiline": true },
+      "ImportDeclaration": "never",
+      "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+  }], 
+    "indent": ["error", 2], 
+
+    "react/prop-types": [1, {
+      "ignore": ["className", "children", "location", "params", "location*"]
+    }],
+    "no-param-reassign": [0, {
+      "props": false
+    }],
+    "prefer-rest-params": 1,
+    "arrow-body-style": 0,
+    "prefer-template": 0,
+    "react/prefer-stateless-function": 1,
+    "react/jsx-no-bind": [0, {
+      "ignoreRefs": false,
+      "allowArrowFunctions": true,
+      "allowBind": true
+    }]
+  },
+
+
+  "settings": {
+    "react": {
+      "createClass": "createReactClass", // Regex for Component Factory to use,
+                                         // default to "createReactClass"
+      "pragma": "React",  // Pragma to use, default to "React"
+      "version": "detect", // React version. "detect" automatically picks the version you have installed.
+                           // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+                           // default to latest and warns if missing
+                           // It will default to "detect" in the future
+      "flowVersion": "0.53" // Flow version
+    },
+    "propWrapperFunctions": [
+        // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
+        "forbidExtraProps",
+        {"property": "freeze", "object": "Object"},
+        {"property": "myFavoriteWrapper"}
+    ],
+    "linkComponents": [
+      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+      "Hyperlink",
+      {"name": "Link", "linkAttribute": "to"}
+    ]
+  }
+  
+}
+
