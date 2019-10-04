@@ -11,12 +11,16 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "plugin:sonarjs/recommended"
 ],
 
   "plugins": [
     "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "react-hooks",
+    "sonarjs",
+    "import"
   ],
 
   "parser": "babel-eslint", // основные правила ESLint поддерживают только последний финальный стандарт ECMAScript и не поддерживают 
@@ -33,6 +37,14 @@
 
   "rules": {
     // "react/state-in-constructor": "never", 
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
+    "react-hooks/exhaustive-deps": "warn", // Проверяем зависимости эффекта
+    "sonarjs/cognitive-complexity": "error",
+    "sonarjs/no-identical-expressions": "error",
     "quotes": [2, "single", { "avoidEscape": true }],
     "no-underscore-dangle":  "off",             // allow simphol " _ " ( name of varibles for ex) 
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],  // allow "js / jsx" format of file with JSX 
