@@ -8,12 +8,15 @@
   "extends": [
     "eslint:all",             // включить все основные правила в текущей установленной версии ESLint
     "airbnb",
-    "eslint:recommended",  // включает подмножество основных правил, сообщающих о распространенных проблемах
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
 ],
 
   "plugins": [
-    "react"
+    "react",
+    "jsx-a11y"
   ],
 
   "parser": "babel-eslint", // основные правила ESLint поддерживают только последний финальный стандарт ECMAScript и не поддерживают 
@@ -62,6 +65,10 @@
 
 
   "settings": {
+    "import/extensions": [
+      ".js",
+      ".jsx"
+    ],
     "react": {
       "createClass": "createReactClass", // Regex for Component Factory to use,
                                          // default to "createReactClass"
