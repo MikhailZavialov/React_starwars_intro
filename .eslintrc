@@ -39,6 +39,7 @@
 
   "rules": {
     // "react/state-in-constructor": "never", 
+    "no-unused-vars": "warn",
     "import/named": 2,
     "import/namespace": 2,
     "import/default": 2,
@@ -53,10 +54,10 @@
     "linebreak-style": ["error",  "windows"], 
     "no-console": "off",                      // allow use console.log 
     "arrow-parens": ["error", "as-needed"],  // allow not use parents with 1  argument in a func 
-
-    "object-curly-newline": ["error", {     // parametr for (последовательные разрывы строк внутри фигурных скобок)
-      "ObjectExpression": "always",
-      "ObjectPattern": { "multiline": true },
+    "object-curly-spacing": "warn",
+    "object-curly-newline": ["warn", {     // parametr for (последовательные разрывы строк внутри фигурных скобок)
+      "ObjectExpression": { "minProperties": 2 },
+      "ObjectPattern":  { "multiline": true },
       "ImportDeclaration": "never",
       "ExportDeclaration": { "multiline": true, "minProperties": 3 }
   }], 
