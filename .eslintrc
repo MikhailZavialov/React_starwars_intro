@@ -39,6 +39,7 @@
 
   "rules": {
     // "react/state-in-constructor": "never", 
+    "react/state-in-constructor": ["warn", "never"],
     "no-unused-vars": "warn",
     "import/named": 2,
     "import/namespace": 2,
@@ -48,7 +49,7 @@
     "react-hooks/exhaustive-deps": "warn", // Проверяем зависимости эффекта
     "sonarjs/cognitive-complexity": "error",
     "sonarjs/no-identical-expressions": "error",
-    "quotes": [2, "single", { "avoidEscape": true }],
+    "jsx-quotes": "off",
     "no-underscore-dangle":  "off",             // allow simphol " _ " ( name of varibles for ex) 
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],  // allow "js / jsx" format of file with JSX 
     "linebreak-style": ["error",  "windows"], 
@@ -63,7 +64,7 @@
   }], 
     "indent": ["error", 2],                 //  последовательный отступ ( по умолч 4 )
 
-    "react/prop-types": [1, {             //  for enabling the rule. 0=off, 1=warn, 2=error. Defaults to 0. 
+    "react/prop-types": [0, {             //  for enabling the rule. 0=off, 1=warn, 2=error. Defaults to 0. 
       "ignore": ["className", "children", "location", "params", "location*"]  // предотвращение проверки недостающих елем в React
     }],
     "no-param-reassign": "error",          // запретить переназначение параметров функции
