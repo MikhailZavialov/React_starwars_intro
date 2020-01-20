@@ -39,6 +39,7 @@
 
   "rules": {
     // "react/state-in-constructor": "never", 
+    "react/destructuring-assignment": "off", 
     "react/state-in-constructor": ["warn", "never"],
     "no-unused-vars": "warn",
     "import/named": 2,

@@ -12,9 +12,19 @@ export default class RandomPlanet extends Component {
     loading: true,
   };
 
-  constructor() {
-    super();
+  componentDidMount() {
+    // console.log('componentDidMount()');
     this.updatePlanet();
+    this.inerval = setInterval(this.updatePlanet, 20000);
+  }
+
+  componentDidUpdate() {
+    // console.log('componentDidUpdate()');
+  }
+
+  componentWillUnmount() {
+    // console.log('componentWillUnmount()');
+    clearInterval(this.inerval);
   }
 
   onPlanetLoaded = planet => {
@@ -23,7 +33,6 @@ export default class RandomPlanet extends Component {
       loading: false,
       error: false,
     });
-    console.log(planet);
   };
 
   onError = err => {
@@ -33,8 +42,9 @@ export default class RandomPlanet extends Component {
     });
   };
 
-  updatePlanet() {
-    const id = Math.floor(Math.random() * (15 - 2) + 2);
+  updatePlanet = () => {
+    // console.log('update');
+    const id = Math.floor(Math.random() * 25) + 3;
     this.swapiService
       .getPlanet(id)
       .then(this.onPlanetLoaded)
@@ -42,6 +52,7 @@ export default class RandomPlanet extends Component {
   }
 
   render() {
+    // console.log('render()');
     const { planet, loading, error } = this.state;
     const hasData = !(loading || error);
     const errorMessage = error ? <ErrorIndicator /> : null;
@@ -71,7 +82,6 @@ const PlanetView = ({ planet }) => {
       />
       <div>
         <span className="d-flex justify-content-around">
-          <h5>{id}</h5>
           <h4>{name}</h4>
         </span>
         <ul className="list-group list-group-flush">
